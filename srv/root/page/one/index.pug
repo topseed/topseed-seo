@@ -6,14 +6,13 @@ block head
 
 block main
 	.mui-container-fluid
-		p
-		include _hello.html
-
-	script.
-		TS.onAppReady(UIinit)
-		function UIinit() {
-			console.log('x')
-		}
+		p.
+			Oh hi
 
 block footer
 	include ../../_part/_footer
+
+script#Lst1Tpl(type='text/x-dot-template').
+	{{~it.array :value:index}}
+		<li><a href={{=value.url}}> {{=value.head_line}}</a></li>
+	{{~}}

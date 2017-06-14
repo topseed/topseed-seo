@@ -8,7 +8,7 @@ global.ServerConfig = new C()
 server.use(express.static(ServerConfig.WEBROOT))
 
 //###################### start the server
-server.listen(ServerConfig.WWW_PORT, '0.0.0.0', function() {
-	console.log('App listening at http://localhost:'+ServerConfig.WWW_PORT)
+server.listen(ServerConfig.MOBILE_PORT, '0.0.0.0', function() {
+	console.log('Mobile listening at http://localhost:'+ServerConfig.MOBILE_PORT)
 	console.log('Press Ctrl+C to quit.')
 })
