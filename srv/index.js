@@ -10,6 +10,7 @@ server.use('/2', require('./scode/route/two'))
 
 // spa ###################### 
 const Decider = require('./utils/Decider')
+server.use(Decider.decide)
 server.use(express.static(ServerConfig.WEBROOT))
 
 //###################### start the server

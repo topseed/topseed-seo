@@ -30,6 +30,8 @@ function pugComp(req,res) {
 exports.decide = function (req, res, next) {//decide based on port
 	res.header('X-TimeSent', U.getDt() )
 	U.cacheLong(res) // default is long, later we set to quick if needed	
+	console.log('dec')
+
 	if (req.path.indexOf('.') > 0 ) { // hasDot?
 		if(req.path.indexOf('.html') > 0) {
 			pugComp(req, res)
