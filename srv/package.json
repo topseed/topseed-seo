@@ -12,6 +12,7 @@
 		"topseed-util": ">=20.1",
 		"server-components": ">=0.2",
 		"jstransformer-dot": ">=0.1",
-		"cheerio": ">=0.22"
+		"cheerio": ">=0.22",
+		"pug": ">=2.0.0-rc.2"
 	}
 }
