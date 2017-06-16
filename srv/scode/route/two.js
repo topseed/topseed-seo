@@ -1,5 +1,7 @@
 const dot = require('jstransformer')(require('jstransformer-dot'))
 
+const transformer = require('jstransformer')
+
 const express = require('express')
 const router = express.Router()
 const Util = require('topseed-util')
@@ -11,6 +13,7 @@ router.get('/', function (req, res) {
 
 	var d = dot.render('Hello, {{=it.name}}!', { name: 'World'}).body
 	//=> 'Hello, World!'
+	const h = pug.renderFile(requestedResource, options)
 
 	/*
 	BL.renderPage(req) // comp
