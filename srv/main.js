@@ -6,7 +6,7 @@ const C = (require('./config/ServerConfig'))
 global.ServerConfig = new C()
 
 // ssr ###################### 
-server.use('/2', require('./scode/route/two'))
+server.use('/m/two', require('./scode/route/two/index'))
 
 // spa ###################### 
 const Decider = require('./utils/Decider')
