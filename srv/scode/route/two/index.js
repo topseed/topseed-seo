@@ -1,7 +1,5 @@
 const express = require('express')
 const router = express.Router()
-const pug = require('pug')
-const doT = require('dot')
 
 const cheerio = require('cheerio')
 
@@ -10,9 +8,6 @@ const BLX = require('./BLX')
 const Util = require('topseed-util')
 const U = new Util()
  
-var options = {}
-options.pretty = true
-
 // route ###################### 
 const ROOT = './' + ServerConfig.WEBROOT
 
@@ -38,25 +33,16 @@ router.get('/', function (req, res) {
 
 	// SSR, you get data first. SPA, you display view first, like a 'blank' component. Early binding, vs late binding
 
-	const h = pug.renderFile(requestedResource, options)
-	const $ = cheerio.load(h) // load in the HTML into cheerio
-	
+	const $ = U.getAsDoc(requestedResource)
+
 	const tpl1 = $('#Lst1Tpl').text()
 	
-	let v = dBind(tpl1, values)
-	v = dBind(d, values)
+	const v = U.dBind(tpl1, values)
+	$('#myList').html(v)
 
-	res.status(200).send(v).end()
+	res.status(200).send( $.html() ).end()
 
 })//get
-
-
-function dBind (tpl, data) { // take tmpl and bind w/ data
-	const tpl1Foo = doT.template(tpl)
-	const v = tpl1Foo(data)
-	console.log(v)
-	return v
-}
 
 
 //###################### 
