@@ -31,17 +31,17 @@ block main
 						head_line: 'News'
 						}
 					]
-					var values = {'array': values2}
+					var values = {'array': values2} // often forgoten
 					return values
 					}
 				})
 			var blx = new MyBLX(MyBLX)
 
 			var values = blx.getData()
+			console.log(values)
 
 			const tpl1 = document.getElementById('Lst1Tpl').text
-			var data2 = {'array': values}
-			var res = TW.bind(tpl1,data2)
+			var res = TW.bind(tpl1,values)
 			//console.log(res)
 			const lst = document.querySelector('#myList')//ctx
 			lst.innerHTML=res
