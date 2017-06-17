@@ -7,7 +7,7 @@ loadjs.ready(['polyfills', 'keyLibs'], {// loaded setup libs
 		loadjs([
 
 			//https://www.npmjs.com/package/topseed-util
-			,'https://unpkg.co/topseed-util@23.5.0/BLB.js'
+			'https://unpkg.co/topseed-util@23.6.0/BLB.js'
 
 			], { success: function(){
 				TS.signalAppReady()
