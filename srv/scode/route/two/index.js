@@ -3,34 +3,15 @@ const router = express.Router()
 
 const cheerio = require('cheerio')
 
-const BLB = require('../../../node_modules/topseed-util/BLB')
+BLB = require('../../../node_modules/topseed-util/BLB')
+const PgBLX = require('../../../root/page/two/PgBLX')
 
 const Util = require('topseed-util')
 const U = new Util()
  
 // route ###################### 
 
-var MyBLX = BLB.extend({ 
-	getData: function() {
-		const values2 = [
-			{
-			url: 'http://www.yahoo.com',
-			head_line: 'Yahoo'
-			},
-			{
-			url: 'http://mail.google.com',
-			head_line: 'Gmail'
-			},
-			{
-			url: 'https://www.cnet.com/news/',
-			head_line: 'News'
-			}
-		]
-		var values = {'array': values2}
-		return values
-	}
-})//class
-var blx = new MyBLX(MyBLX)
+var blx = new PgBLX()
 
 const ROOT = './' + ServerConfig.WEBROOT
 

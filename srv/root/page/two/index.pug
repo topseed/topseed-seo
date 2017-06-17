@@ -12,32 +12,16 @@ block main
 	
 	script.
 		TS.onAppReady(UIinit)
+
 		function UIinit() {//don't forget #comps
 			console.log('.')
+			TS.load('/page/two/PgBLX.js', onLoadedBL)
+		}//()
 
-			var MyBLX = BLB.extend({ // 
-				getData: function() {
-					const values2 = [
-						{
-						url: 'http://www.yahoo.com',
-						head_line: 'Yahoo'
-						},
-						{
-						url: 'http://mail.google.com',
-						head_line: 'Gmail'
-						},
-						{
-						url: 'https://www.cnet.com/news/',
-						head_line: 'News'
-						}
-					]
-					var values = {'array': values2} // often forgoten
-					return values
-					}
-				})
-			var blx = new MyBLX(MyBLX)
+		function onLoadedBL() {
+			const bl = new PgBLX()
 
-			var values = blx.getData()
+			var values = bl.getData()
 			console.log(values)
 
 			const tpl1 = document.getElementById('Lst1Tpl').text
