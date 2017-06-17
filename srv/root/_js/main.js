@@ -3,7 +3,7 @@ console.log('main')
 
 loadjs.ready(['polyfills', 'keyLibs'], {// loaded setup libs
 	success: function(){
-        console.log('main')
+		console.log('main')
 
 		TS.signalAppReady()
 
