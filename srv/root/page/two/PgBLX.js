@@ -1,6 +1,5 @@
 
-
-var PgBLX = BLB.extend({ // 
+var PgBLX = PLX.extend({ // 
 	getData: function() {
 		const values2 = [
 			{

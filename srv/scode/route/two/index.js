@@ -3,7 +3,7 @@ const router = express.Router()
 
 const cheerio = require('cheerio')
 
-BLB = require('../../../node_modules/topseed-util/BLB')
+PLX = require('../../../node_modules/topseed-util/PLX')
 const PgBLX = require('../../../root/page/two/PgBLX')
 
 const Util = require('topseed-util')

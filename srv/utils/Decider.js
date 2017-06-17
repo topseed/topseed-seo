@@ -1,22 +1,15 @@
-
-
-
 const Util = require('topseed-util')
 const U = new Util() 
 
 // ###################### middle filter
 const ROOT = './' + ServerConfig.WEBROOT
 
-
-
-
 function pugComp(req,res) {
 	const pgPath = U.getPath(ROOT,req)
-
 	console.log('requested:'+requestedResource )
 	res.header('Content-Type', 'text/html')
 	U.cacheQuick(res)
-	const html = pug.renderFile(requestedResource)
+	const html = U.getPug(requestedResource)
 	res.send(html)
 }
 
@@ -42,7 +35,7 @@ exports.decide = function (req, res, next) {//decide based on port
 			res.header('Content-Type', 'text/html')
 			U.cacheQuick(res)
 
-			const html = pug.renderFile(requestedResource)
+			const html = U.getPug(requestedResource)
 			res.send(html)
 
 		} catch(err) {
