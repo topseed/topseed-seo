@@ -9,13 +9,10 @@ const Util = require('topseed-util')
 const U = new Util()
  
 // route ###################### 
-const ROOT = './' + ServerConfig.WEBROOT
 
-router.get('/', function (req, res) {	
-	console.log('ssr2')
-	
-	const requestedResource = ROOT + '/page/two/indexM.pug'
-	const values2 = [
+var MyBLX = BLX.extend({ // fake BLX
+	getData: function() {
+		const values2 = [
 			{
 			url: 'http://www.yahoo.com',
 			head_line: 'Yahoo'
@@ -29,7 +26,21 @@ router.get('/', function (req, res) {
 			head_line: 'News'
 			}
 		]
-	var values = {'array': values2}
+		var values = {'array': values2}
+		return values
+	}
+})
+
+var blx = new MyBLX(MyBLX)
+const ROOT = './' + ServerConfig.WEBROOT
+
+router.get('/', function (req, res) {
+
+	console.log('ssr2')
+
+	const requestedResource = ROOT + '/page/two/indexM.pug'
+
+	var values = blx.getData()
 
 	// SSR, you get data first. SPA, you display view first, like a 'blank' component. Early binding, vs late binding
 
