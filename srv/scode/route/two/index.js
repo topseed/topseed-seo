@@ -17,10 +17,10 @@ options.pretty = true
 const ROOT = './' + ServerConfig.WEBROOT
 
 router.get('/', function (req, res) {	
-	console.log('ssr')
-
+	console.log('ssr2')
+	
 	const requestedResource = ROOT + '/page/two/indexM.pug'
-	var values = [
+	const values2 = [
 			{
 			url: 'http://www.yahoo.com',
 			head_line: 'Yahoo'
@@ -34,6 +34,7 @@ router.get('/', function (req, res) {
 			head_line: 'News'
 			}
 		]
+	var values = {'array': values2}
 
 	// SSR, you get data first. SPA, you display view first, like a 'blank' component. Early binding, vs late binding
 
@@ -41,18 +42,22 @@ router.get('/', function (req, res) {
 	const $ = cheerio.load(h) // load in the HTML into cheerio
 	
 	const tpl1 = $('#Lst1Tpl').text()
-	const html = dBind(tpl1, values)
-	console.log(html)
 	
-	res.status(200).send(h)
+	let v = dBind(tpl1, values)
+	v = dBind(d, values)
+
+	res.status(200).send(v).end()
 
 })//get
 
+
 function dBind (tpl, data) { // take tmpl and bind w/ data
-	console.log(tpl, data)
 	const tpl1Foo = doT.template(tpl)
-	return tpl1Foo(data)
+	const v = tpl1Foo(data)
+	console.log(v)
+	return v
 }
+
 
 //###################### 
 module.exports = router
