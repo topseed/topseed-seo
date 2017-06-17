@@ -1,9 +1,5 @@
-const fs = require('fs')
-const pug = require('pug')
 
-const transformer = require('jstransformer')
 
-const isj = require('is_js')
 
 const Util = require('topseed-util')
 const U = new Util() 
@@ -12,16 +8,15 @@ const U = new Util()
 const ROOT = './' + ServerConfig.WEBROOT
 
 
-var options = {}
-options.pretty = true
+
 
 function pugComp(req,res) {
 	const pgPath = U.getPath(ROOT,req)
-	const requestedResource = U.replace(pgPath, '.html', '.pug')
+
 	console.log('requested:'+requestedResource )
 	res.header('Content-Type', 'text/html')
 	U.cacheQuick(res)
-	const html = pug.renderFile(requestedResource, options)
+	const html = pug.renderFile(requestedResource)
 	res.send(html)
 }
 
@@ -47,7 +42,7 @@ exports.decide = function (req, res, next) {//decide based on port
 			res.header('Content-Type', 'text/html')
 			U.cacheQuick(res)
 
-			const html = pug.renderFile(requestedResource, options)
+			const html = pug.renderFile(requestedResource)
 			res.send(html)
 
 		} catch(err) {
