@@ -3,14 +3,14 @@ const router = express.Router()
 
 const cheerio = require('cheerio')
 
-const BLX = require('../../../node_modules/topseed-util/BLX')
+const BLB = require('../../../node_modules/topseed-util/BLB')
 
 const Util = require('topseed-util')
 const U = new Util()
  
 // route ###################### 
 
-var MyBLX = BLX.extend({ 
+var MyBLX = BLB.extend({ 
 	getData: function() {
 		const values2 = [
 			{
