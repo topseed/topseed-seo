@@ -14,20 +14,31 @@ block main
 		TS.onAppReady(UIinit)
 		function UIinit() {//don't forget #comps
 			console.log('.')
-			var values = [
-					{
-					url: 'http://www.yahoo.com',
-					head_line: 'Yahoo'
-					},
-					{
-					url: 'http://mail.google.com',
-					head_line: 'Gmail'
-					},
-					{
-					url: 'https://www.cnet.com/news/',
-					head_line: 'News'
+
+			var MyBLX = BLX.extend({ // 
+				getData: function() {
+					const values2 = [
+						{
+						url: 'http://www.yahoo.com',
+						head_line: 'Yahoo'
+						},
+						{
+						url: 'http://mail.google.com',
+						head_line: 'Gmail'
+						},
+						{
+						url: 'https://www.cnet.com/news/',
+						head_line: 'News'
+						}
+					]
+					var values = {'array': values2}
+					return values
 					}
-				]
+				})
+			var blx = new MyBLX(MyBLX)
+
+			var values = blx.getData()
+
 			const tpl1 = document.getElementById('Lst1Tpl').text
 			var data2 = {'array': values}
 			var res = TW.bind(tpl1,data2)
@@ -44,3 +55,4 @@ block footer
 		{{~it.array :value:index}}
 			<li><a href={{=value.url}}> {{=value.head_line}}</a></li>
 		{{~}}
+

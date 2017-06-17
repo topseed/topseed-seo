@@ -10,7 +10,7 @@ const U = new Util()
  
 // route ###################### 
 
-var MyBLX = BLX.extend({ // fake BLX
+var MyBLX = BLX.extend({ 
 	getData: function() {
 		const values2 = [
 			{
@@ -29,9 +29,9 @@ var MyBLX = BLX.extend({ // fake BLX
 		var values = {'array': values2}
 		return values
 	}
-})
-
+})//class
 var blx = new MyBLX(MyBLX)
+
 const ROOT = './' + ServerConfig.WEBROOT
 
 router.get('/', function (req, res) {
