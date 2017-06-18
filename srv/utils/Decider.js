@@ -6,10 +6,10 @@ const ROOT = './' + ServerConfig.WEBROOT
 
 function pugComp(req,res) {
 	const pgPath = U.getPath(ROOT,req)
-	console.log('requested:'+requestedResource )
+	console.log('requested:'+pgPath )
 	res.header('Content-Type', 'text/html')
 	U.cacheQuick(res)
-	const html = U.getPug(requestedResource)
+	const html = U.getPug(pgPath)
 	res.status(200).send( html).end()
 }
 
