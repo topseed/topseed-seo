@@ -1,8 +1,9 @@
 {
-	"name": " ",
+	"name": "topseed-seo",
 	"version": "1.0.1",
-	"description": " ",
-	"license": "MIT",
+	"description": "An implementation that is even more SEO-friendly, thanks to Server-Side Rendering (SSR) features.",
+	"repository": {"type": "git","url": "https://github.com/topseed/topseed-seo.git"}, 
+	"license": "SEE LICENSE IN LICENSE.md", 	
 	"engines": {
 		"npm": ">=5",
 		"node": ">=8"
