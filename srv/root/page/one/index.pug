@@ -1,14 +1,42 @@
 extends  ../../_part/_baseShell
 
 block head
-	title Page One
+	title Page Two
 	include ../../_part/_header
 
 block main
 	.mui-container-fluid
 		p.
-			Oh hi
+			2
+		#myList
+	
+	script.
+		TS.onAppReady(UIinit)
+
+		function UIinit() {//don't forget #comps
+			console.log('.')
+			TS.load('/page/two/PgBLX.js', onLoadedBL)
+		}//()
+
+		function onLoadedBL() {
+			const bl = new PgBLX()
+
+			var values = bl.getData()
+			console.log(values)
+
+			const tpl1 = document.getElementById('Lst1Tpl').text
+			var res = TW.bind(tpl1,values)
+			//console.log(res)
+			const lst = document.querySelector('#myList')//ctx
+			lst.innerHTML=res
+		}//()
+
 
 block footer
 	include ../../_part/_footer
+
+	script#Lst1Tpl(type='text/x-dot-template').
+		{{~it.array :value:index}}
+			<li><a href={{=value.url}}> {{=value.head_line}}</a></li>
+		{{~}}
 

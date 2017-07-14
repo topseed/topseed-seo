@@ -1,0 +1,31 @@
+extends  ../../_part/_baseShell
+
+block head
+	title Prelist
+	include ../../_part/_header
+
+block main
+	.mui-container-fluid
+		p
+		p No-component list:
+		p My List Title
+		#myList
+
+	script#MyListTemplate(type='text/x-dot-template').
+		<ul>
+		{{~it.array :value:index}}
+			<li><a href="{{=value.url}}" target="_blank">{{=value.head_line}}</a></li>
+		{{~}}
+		</ul>	
+	script.
+		TS.loadOnAppReady('/page/list/ListBusiness.js', UIinit) 
+
+		function UIinit() {
+
+			const sb = ListBusiness()
+			sb.list('myList', 'MyListTemplate')
+
+		}//()
+
+block footer
+	include ../../_part/_footer
