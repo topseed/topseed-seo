@@ -118,7 +118,7 @@ var PDS = Class.extend({ //Universal base class for Data Access Object
 				}
 				//no body for get
 			}).then(function(response) { //2: returns a promise
-				console.log(response.headers)
+				//console.log(response.headers)
 
 				if (!response.ok) {
 					console.log('not ok')
@@ -154,9 +154,8 @@ var PDS = Class.extend({ //Universal base class for Data Access Object
 				, body: JSON.stringify(data_)
 			}).then(function(response) { //2 returns a promise
 				
-				console.log('received post response,headers:')
-
-				console.log(response.headers)
+				console.log('received post response')
+				//console.log(response.headers)
 
 				if (!response.ok) {
 					console.log('not ok')
