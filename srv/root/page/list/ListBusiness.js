@@ -1,9 +1,6 @@
 
 function ListBusiness() {// 'closure|module'-iso.
 
-	if (typeof PLX == undefined) //serverside
-		PLX = require('../../../node_modules/topseed-util/PLX')
-
 	const urlSpec = {root:'http://localhost:8000', selectList: '/page/list/dummy.json'}
 
 	var SiteListDao = PDS.extend({}) 
