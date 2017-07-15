@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 const cheerio = require('cheerio')
+const doT = require('dot')
 
 PLX = require('../../../node_modules/topseed-util/PLX')
 const PgBLX = require('../../../root/page/two/PgBLX')
